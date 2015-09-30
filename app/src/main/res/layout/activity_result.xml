@@ -28,7 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:textColor="#000000"
-            android:text="Score"
+            android:text="We're gonna get all in your face and point out your faults."
             android:textStyle="bold"
             android:textSize="24dp"
             android:gravity="center"
@@ -44,9 +44,11 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:text="reset"
+            android:textStyle="bold"
+            android:textSize="24dp"
             android:onClick="reset"
-            android:background="#000000"
-            android:textColor="#FFFFFF"
+            android:background="#FFFF00"
+            android:textColor="#FF0000"
             android:layout_weight="1"/>
     </LinearLayout>
 

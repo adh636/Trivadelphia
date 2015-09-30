@@ -18,12 +18,12 @@ public class MainActivity extends AppCompatActivity {
 
     List<QuestionAnswer> qaList;
     int score = 0;
-    int qid = 0;
+    int qid = 0; // reference to question id in the database (eventually qaList)
 
     QuestionAnswer currentQuestion;
-    TextView txtQuestion;
-    RadioButton rbOne, rbTwo, rbThree;
-    Button nextButton;
+    TextView txtQuestion; // used to pass the question to the UI
+    RadioButton rbOne, rbTwo, rbThree; // used to pass the answers to the UI
+    Button nextButton; // button to submit answer and move to next question
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         nextButton = (Button) findViewById(R.id.nextButton);
         setQAView();
 
+        // handles app behavior when the nextButton is pressed
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -47,16 +48,21 @@ public class MainActivity extends AppCompatActivity {
                 RadioButton answer = (RadioButton) findViewById(grp.getCheckedRadioButtonId());
                 if (currentQuestion.getAnswer().equals(answer.getText())) {
                     score++;
-                    Log.d("score", "Your score" + score);
+                    Log.d("score", "Your score" + score); // log statement for testing score
                 }
+                // change when more questions are added (use rowCount())
                 if (qid < 5) {
                     currentQuestion = qaList.get(qid);
                     setQAView();
                 } else {
+                    // creates intent for launching the result screen
                     Intent intent = new Intent(MainActivity.this, ResultActivity.class);
                     Bundle b = new Bundle();
+                    // puts the score in a Bundle so it can be passed to the ResultActivity
                     b.putInt("score", score);
+                    // puts the Bundle into the Intent
                     intent.putExtras(b);
+                    // starts the ResultActivity with score values stored
                     startActivity(intent);
                     finish();
                 }
@@ -71,17 +77,13 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    // passes the questions and answers to the UI Views
     private void setQAView() {
         txtQuestion.setText(currentQuestion.getQuestion());
         rbOne.setText(currentQuestion.getOptionOne());
         rbTwo.setText(currentQuestion.getOptionTwo());
         rbThree.setText(currentQuestion.getOptionThree());
         qid++;
-    }
-
-    // possible use for ResultActivity?
-    public int getScore() {
-        return score;
     }
 
     @Override

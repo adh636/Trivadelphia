@@ -72,10 +72,12 @@
             android:id="@+id/nextButton"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:background="#000000"
+            android:background="#FFEB3B"
             android:text="NEXT"
+            android:textStyle="bold"
+            android:textSize="16dp"
             android:layout_weight="1"
-            android:textColor="#FFFFFF" />
+            android:textColor="#000000" />
     </LinearLayout>
 
 </RelativeLayout>

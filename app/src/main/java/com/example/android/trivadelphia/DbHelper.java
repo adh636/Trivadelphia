@@ -13,17 +13,19 @@ import java.util.List;
  * Created by Adam on 9/26/15.
  */
 public class DbHelper extends SQLiteOpenHelper {
+
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "triviaQuiz";
     private static final String TABLE_QUEST = "quest";
     private static final String KEY_ID = "id";
     private static final String KEY_QUES = "question";
-    private static final String KEY_ANSWER = "answer"; //correct option
-    private static final String KEY_OPTA= "opta"; //option a
-    private static final String KEY_OPTB= "optb"; //option b
-    private static final String KEY_OPTC= "optc"; //option c
+    private static final String KEY_ANSWER = "answer";
+    private static final String KEY_OPTA = "opta";
+    private static final String KEY_OPTB = "optb";
+    private static final String KEY_OPTC = "optc";
     private SQLiteDatabase dbase;
 
+    // DbHelper constructor
     public DbHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -31,25 +33,34 @@ public class DbHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         dbase =  db;
+        // Set SQLite database parameters
         String sql = "CREATE TABLE IF NOT EXISTS " + TABLE_QUEST + " ( "
                 + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + KEY_QUES
-                + " TEXT, " + KEY_ANSWER+ " TEXT, "+KEY_OPTA +" TEXT, "
-                +KEY_OPTB +" TEXT, "+KEY_OPTC+" TEXT)";
+                + " TEXT, " + KEY_ANSWER + " TEXT, " + KEY_OPTA + " TEXT, "
+                + KEY_OPTB + " TEXT, " + KEY_OPTC + " TEXT)";
         db.execSQL(sql);
         addQuestions();
         //db.close();
     }
+
+    // create the questions and use the addQuestion method to add them to the database
     private void addQuestions()
     {
-        QuestionAnswer q1 = new QuestionAnswer("What is the first name of Dennis and Dee's real father?","Francis", "Frank", "Bruce", "Bruce");
+        QuestionAnswer q1 = new QuestionAnswer("Why does Charlie need a second coat?",
+                "To store his cheese", "To impress the waitress", "To protect his second coat", "To protect his second coat");
         this.addQuestion(q1);
-        QuestionAnswer q2 = new QuestionAnswer("What does the first N in the D.E.N.N.I.S. system stand for?", "Neglect Emotionally", "Nurture Dependence", "Negate Value", "Nurture Dependence");
+        QuestionAnswer q2 = new QuestionAnswer("What does the S in the D.E.N.N.I.S. system stand for?",
+                "Sensual feelings", "Separate entirely", "Stab in the back", "Separate entirely");
         this.addQuestion(q2);
-        QuestionAnswer q3 = new QuestionAnswer("Dennis is asshole. Why Charlie Hate?","Because Dennis banged the waitress", "Dennis stole my grilled cheese","Because Dennis is a bastard man","Because Dennis is a bastard man");
+        QuestionAnswer q3 = new QuestionAnswer("Dennis is asshole. Why Charlie Hate?",
+                "Because Dennis doesn't know bird law", "Because Dennis stole the grilled cheese",
+                "Because Dennis is a bastard man","Because Dennis is a bastard man");
         this.addQuestion(q3);
-        QuestionAnswer q4 = new QuestionAnswer("In Lethal Weapon 6, who plays Murtaugh?", "Dennis and Mac", "Danny Glover", "Mac", "Dennis and Mac");
+        QuestionAnswer q4 = new QuestionAnswer("What does Frank dress as for Halloween?",
+                "Man-Spider", "The trash man", "An oompa loompa", "Man-Spider");
         this.addQuestion(q4);
-        QuestionAnswer q5 = new QuestionAnswer("Who does Rick sell an anti-matter gun to?","Plemtonion Steve","Swatilligan James","Krombopulous Michael", "Krombopulous Michael");
+        QuestionAnswer q5 = new QuestionAnswer("Who pooped the bed?",
+                "Artemis","Rickety Cricket","Frank", "Frank");
         this.addQuestion(q5);
     }
 
@@ -60,6 +71,7 @@ public class DbHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
+    // reads
     public void addQuestion(QuestionAnswer quest) {
         //SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -71,6 +83,8 @@ public class DbHelper extends SQLiteOpenHelper {
 
         dbase.insert(TABLE_QUEST, null, values);
     }
+
+    // gets all questions and adds them to an ArrayList to be used by MainActivity
     public List<QuestionAnswer> getAllQuestions() {
         List<QuestionAnswer> qaList = new ArrayList<>();
         String selectQuery = "SELECT  * FROM " + TABLE_QUEST;
@@ -89,12 +103,11 @@ public class DbHelper extends SQLiteOpenHelper {
                 qaList.add(quest);
             } while (cursor.moveToNext());
         }
-
         return qaList;
     }
 
     // planning to use to determine number of questions for ResultActivity
-    public int rowcount()
+    public int rowCount()
     {
         int row=0;
         String selectQuery = "SELECT  * FROM " + TABLE_QUEST;

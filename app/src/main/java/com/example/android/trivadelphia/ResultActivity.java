@@ -18,34 +18,39 @@ public class ResultActivity extends AppCompatActivity {
         setContentView(R.layout.activity_result);
 
         TextView tv = (TextView) findViewById(R.id.ratingBar1);
-        TextView t = (TextView) findViewById(R.id.textResult);
+        TextView tr = (TextView) findViewById(R.id.textResult);
         // ImageView rP = (ImageView) findViewById(R.id.resultPic);
+
+        // retrieves Bundle from MainActivity
         Bundle b = getIntent().getExtras();
+        // stores the score that was passed from MainActivity
         int score = b.getInt("score");
-        tv.setText(Integer.toString(score));
+        // displays the score in the TextView for result
+        tv.setText(Integer.toString(score) + " out of 5");
+        // chooses which quote from the show to display based on user score
         switch (score) {
             case 1:
-                t.setText("Your illiteracy has screwed us again!");
+                tr.setText("Get your shit together dog!");
                 // Drawable myDrawable = ContextCompat.getDrawable(this, R.drawable.charlieoops);
                 // rP.setImageDrawable(myDrawable);
                 break;
             case 2:
-                t.setText("Get your shit together dog!");
+                tr.setText("Your illiteracy has screwed us again!");
                 // Drawable myDrawable1 = ContextCompat.getDrawable(this, R.drawable.charlieroids);
                 // rP.setImageDrawable(myDrawable1);
                 break;
             case 3:
-                t.setText("Gotta separate the wheat from the chaff somehow");
+                tr.setText("Gotta separate the wheat from the chaff somehow");
                 // Drawable myDrawable2 = ContextCompat.getDrawable(this, R.drawable.pepesilvia);
                 // rP.setImageDrawable(myDrawable2);
                 break;
             case 4:
-                t.setText("You're like a big round wizard");
+                tr.setText("You're like a big round wizard");
                 // Drawable myDrawable3 = ContextCompat.getDrawable(this, R.drawable.water);
                 // rP.setImageDrawable(myDrawable3);
                 break;
             case 5:
-                t.setText("Firing on all cylinders");
+                tr.setText("Firing on all cylinders");
                 // Drawable myDrawable4 = ContextCompat.getDrawable(this, R.drawable.cheers);
                 // rP.setImageDrawable(myDrawable4);
                 break;
