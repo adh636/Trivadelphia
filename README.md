@@ -6,7 +6,7 @@ Below are links to the folders which hold most of the relevant code.
 
 https://github.com/adh636/Trivadelphia/tree/master/app/src/main/java/com/example/android/trivadelphia
 
-This folder includes the .java files.  MainActivity launches the app.  QuestionAnswer creates the class that is used to pass content into the UI.  DbHelper is used to create the SQLite database and fill it with questions.  ResultAcitivty handles the result screen when someone finishes the quiz (score display).
+This folder includes the .java files.  MainActivity launches the app.  QuestionAnswer creates the class that is used to pass content into the UI.  DbHelper is used to create the SQLite database and fill it with questions.  ResultActivty handles the result screen when someone finishes the quiz (score display).
 
 https://github.com/adh636/Trivadelphia/tree/master/app/src/main/res
 
