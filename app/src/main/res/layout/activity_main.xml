@@ -43,7 +43,8 @@
                 android:paddingLeft="32dp"
                 android:text="One"
                 android:textSize="16dp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_margin="8dp" />
 
             <RadioButton
                 android:id="@+id/radio2"
@@ -54,7 +55,8 @@
                 android:paddingLeft="32dp"
                 android:text="Two"
                 android:textSize="16dp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_margin="8dp" />
 
             <RadioButton
                 android:id="@+id/radio3"
@@ -65,7 +67,8 @@
                 android:paddingLeft="32dp"
                 android:text="Three"
                 android:textSize="16dp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_margin="8dp" />
         </RadioGroup>
 
         <Button
