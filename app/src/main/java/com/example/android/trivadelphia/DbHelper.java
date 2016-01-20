@@ -56,7 +56,7 @@ public class DbHelper extends SQLiteOpenHelper {
                 "Interstate sanitation", "Mentor troubled youth",
                 "Coach youth basketball","Coach youth basketball");
         this.addQuestion(q3);
-        QuestionAnswer q4 = new QuestionAnswer("What does Frank dress as for Halloween?",
+        QuestionAnswer q4 = new QuestionAnswer("What does Frank dress up as for Halloween?",
                 "Man-Spider", "The trash man", "An oompa loompa", "Man-Spider");
         this.addQuestion(q4);
         QuestionAnswer q5 = new QuestionAnswer("What is Mac's full name?",
