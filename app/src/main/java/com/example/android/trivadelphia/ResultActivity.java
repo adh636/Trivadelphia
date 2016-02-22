@@ -26,7 +26,7 @@ public class ResultActivity extends AppCompatActivity {
         // stores the score that was passed from MainActivity
         int score = b.getInt("score");
         // displays the score in the TextView for result
-        tv.setText(Integer.toString(score) + " out of 5");
+        tv.setText(Integer.toString(score) + " out of 6");
         // chooses which quote from the show to display based on user score
         switch (score) {
             case 1:
@@ -53,6 +53,9 @@ public class ResultActivity extends AppCompatActivity {
                 tr.setText("Firing on all cylinders");
                 // Drawable myDrawable4 = ContextCompat.getDrawable(this, R.drawable.cheers);
                 // rP.setImageDrawable(myDrawable4);
+                break;
+            case 6:
+                tr.setText("Shabooya Roll Call");
                 break;
         }
     }
