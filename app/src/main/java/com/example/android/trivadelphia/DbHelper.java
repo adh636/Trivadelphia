@@ -47,23 +47,26 @@ public class DbHelper extends SQLiteOpenHelper {
     private void addQuestions()
     {
         QuestionAnswer q1 = new QuestionAnswer("Why does Charlie need a second coat?",
-                "To store his cheese", "To impress the waitress", "To protect his second coat", "To protect his second coat");
+                "To store his cheese", "To impress the waitress", "To protect his other coat", "To protect his other coat");
         this.addQuestion(q1);
-        QuestionAnswer q2 = new QuestionAnswer("What does the S in the D.E.N.N.I.S. system stand for?",
-                "Sensual feelings", "Separate entirely", "Stab in the back", "Separate entirely");
+        QuestionAnswer q2 = new QuestionAnswer("What animal does Sweet Dee most resemble?",
+                "A hippo", "A bird", "A bear", "A bird");
         this.addQuestion(q2);
-        QuestionAnswer q3 = new QuestionAnswer("Dennis is asshole. Why Charlie Hate?",
-                "Because Dennis doesn't know bird law", "Because Dennis stole the grilled cheese",
-                "Because Dennis is a bastard man","Because Dennis is a bastard man");
+        QuestionAnswer q3 = new QuestionAnswer("In The Gang Gives Back, what does the gang do for community service?",
+                "Interstate sanitation", "Mentor troubled youth",
+                "Coach youth basketball","Coach youth basketball");
         this.addQuestion(q3);
-        QuestionAnswer q4 = new QuestionAnswer("What does Frank dress as for Halloween?",
+        QuestionAnswer q4 = new QuestionAnswer("What does Frank dress up as for Halloween?",
                 "Man-Spider", "The trash man", "An oompa loompa", "Man-Spider");
         this.addQuestion(q4);
-        QuestionAnswer q5 = new QuestionAnswer("Who pooped the bed?",
-                "Artemis","Rickety Cricket","Frank", "Frank");
+        QuestionAnswer q5 = new QuestionAnswer("What is Mac's full name?",
+                "Mackenzie Meehan","Macaulay Culkin","Ronald McDonald", "Ronald McDonald");
         this.addQuestion(q5);
+        QuestionAnswer q6 = new QuestionAnswer("Why is there a tunnel between the stadium and the holiday inn?",
+                "To smuggle in HGH", "Because Philly fans like to hammer the opposing team",
+                "It's where the Philly Phanatic lives", "Because Philly fans like to hammer the opposing team");
+        this.addQuestion(q6);
     }
-
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldV, int newV) {
