@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
                     Log.d("score", "Your score" + score); // log statement for testing score
                 }
                 // change when more questions are added (use rowCount())
-                if (qid < 5) {
+                if (qid < 6) {
                     currentQuestion = qaList.get(qid);
                     setQAView();
                 } else {
